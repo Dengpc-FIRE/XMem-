@@ -69,35 +69,7 @@ For inference, see [INFERENCE.md](docs/INFERENCE.md).
 2. [DEVA](https://github.com/hkchengrex/Tracking-Anything-with-DEVA)
 3. [AutoTrackAnything](https://github.com/licksylick/AutoTrackAnything)
 
-### Citation
 
-Please cite our paper if you find this repo useful!
-
-```bibtex
-@inproceedings{cheng2022xmem,
-  title={{XMem}: Long-Term Video Object Segmentation with an Atkinson-Shiffrin Memory Model},
-  author={Cheng, Ho Kei and Alexander G. Schwing},
-  booktitle={ECCV},
-  year={2022}
-}
-```
-
-Related projects that this paper is developed upon:
-```bibtex
-@inproceedings{cheng2021stcn,
-  title={Rethinking Space-Time Networks with Improved Memory Coverage for Efficient Video Object Segmentation},
-  author={Cheng, Ho Kei and Tai, Yu-Wing and Tang, Chi-Keung},
-  booktitle={NeurIPS},
-  year={2021}
-}
-
-@inproceedings{cheng2021mivos,
-  title={Modular Interactive Video Object Segmentation: Interaction-to-Mask, Propagation and Difference-Aware Fusion},
-  author={Cheng, Ho Kei and Tai, Yu-Wing and Tang, Chi-Keung},
-  booktitle={CVPR},
-  year={2021}
-}
-```
 
 We use f-BRS in the interactive demo: https://github.com/saic-vul/fbrs_interactive_segmentation
 
@@ -112,4 +84,3 @@ bibtex
 
 </details>
 
-Contact: <hkchengrex@gmail.com>
