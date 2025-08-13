@@ -1,0 +1,37 @@
+/root/autodl-tmp/trackrad-xmem/trackrad2025-main/baseline-algorithm/util/logger.py:30: UserWarning: Logging has been disbaled.
+  warnings.warn('Logging has been disbaled.')
+/root/autodl-tmp/trackrad-xmem/trackrad2025-main/baseline-algorithm/util/logger.py:98: UserWarning: Logging has been disabled.
+  warnings.warn('Logging has been disabled.')
+/root/autodl-tmp/trackrad-xmem/trackrad2025-main/baseline-algorithm/model/trainer.py:53: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = torch.cuda.amp.GradScaler()
+INFO:dataset.mri_mha_dataset:找到 50 个样本文件夹
+[Warning] Git info not available: /root/autodl-tmp/trackrad-xmem/trackrad2025-main/baseline-algorithm
+Running in non-distributed (single-GPU) mode.
+CUDA Device count: 1
+=======================
+['0', '2']
+0
+1
+[INFO] Using 1 GPU(s).
+git unknown
+hyperpara {'benchmark': False, 'no_amp': False, 'static_root': '../static', 'bl_root': '../BL30K', 'yv_root': '../YouTube', 'davis_root': '../DAVIS', 'num_workers': 16, 'key_dim': 64, 'value_dim': 512, 'hidden_dim': 64, 'deep_update_prob': 0.2, 'stages': '02', 's0_batch_size': 16, 's0_iterations': 150000, 's0_finetune': 0, 's0_steps': [], 's0_lr': 1e-05, 's0_num_ref_frames': 2, 's0_num_frames': 3, 's0_start_warm': 20000, 's0_end_warm': 70000, 's1_batch_size': 8, 's1_iterations': 250000, 's1_finetune': 0, 's1_steps': [200000], 's1_lr': 1e-05, 's1_num_ref_frames': 3, 's1_num_frames': 8, 's1_start_warm': 20000, 's1_end_warm': 70000, 's2_batch_size': 8, 's2_iterations': 150000, 's2_finetune': 10000, 's2_steps': [120000], 's2_lr': 1e-05, 's2_num_ref_frames': 3, 's2_num_frames': 8, 's2_start_warm': 20000, 's2_end_warm': 70000, 's3_batch_size': 8, 's3_iterations': 100000, 's3_finetune': 10000, 's3_steps': [80000], 's3_lr': 1e-05, 's3_num_ref_frames': 3, 's3_num_frames': 8, 's3_start_warm': 20000, 's3_end_warm': 70000, 'gamma': 0.1, 'weight_decay': 0.05, 'load_network': None, 'load_checkpoint': None, 'log_text_interval': 100, 'log_image_interval': 1000, 'save_network_interval': 25000, 'save_checkpoint_interval': 50000, 'exp_id': 'NULL', 'debug': False, 'amp': True, 'batch_size': 1, 'iterations': 150000, 'finetune': 10000, 'steps': [120000], 'lr': 1e-05, 'num_ref_frames': 3, 'num_frames': 8, 'start_warm': 20000, 'end_warm': 70000, 'single_object': False, 'num_gpus': 1}
+Single object mode: False
+Single object mode: False
+model_size 62185224
+[DATASET] TrackRAD dataset size: 50
+[TRAIN] Training for approx 3000 epochs
+[TRAIN] Epoch: 1
+/root/autodl-tmp/trackrad-xmem/trackrad2025-main/baseline-algorithm/model/trainer.py:230: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+Traceback (most recent call last):
+  File "train.py", line 340, in <module>
+    trainer.do_pass(data, total_iter)
+  File "/root/autodl-tmp/trackrad-xmem/trackrad2025-main/baseline-algorithm/model/trainer.py", line 396, in do_pass
+    self.scaler.scale(losses['total_loss']).backward()
+  File "/root/miniconda3/envs/XMem/lib/python3.8/site-packages/torch/_tensor.py", line 521, in backward
+    torch.autograd.backward(
+  File "/root/miniconda3/envs/XMem/lib/python3.8/site-packages/torch/autograd/__init__.py", line 289, in backward
+    _engine_run_backward(
+  File "/root/miniconda3/envs/XMem/lib/python3.8/site-packages/torch/autograd/graph.py", line 769, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 72.00 MiB. GPU 0 has a total capacity of 23.68 GiB of which 67.06 MiB is free. Process 149315 has 1.78 GiB memory in use. Process 382996 has 2.68 GiB memory in use. Process 505557 has 4.94 GiB memory in use. Process 704323 has 2.68 GiB memory in use. Process 97565 has 2.68 GiB memory in use. Process 98754 has 4.87 GiB memory in use. Process 116459 has 3.96 GiB memory in use. Of the allocated memory 3.56 GiB is allocated by PyTorch, and 85.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
