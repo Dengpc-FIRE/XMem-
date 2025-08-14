@@ -25,7 +25,7 @@ RUN python -m pip install \
     --requirement /opt/app/requirements.txt
 
 COPY --chown=user:user inference.py /opt/app/
-COPY --chown=user:user model.py /opt/app/
+COPY --chown=user:user XMemModel.py /opt/app/
 
 # Add any other files that are needed for your algorithm
 # COPY --chown=user:user <source> <destination>
