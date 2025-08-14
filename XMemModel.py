@@ -41,8 +41,8 @@ def run_algorithm(frames: np.ndarray, target: np.ndarray, frame_rate: float, mag
         'top_k': 30,                            # Top-K相似性选择
         'mem_every': 5,                         # 每隔多少帧存储记忆
         'deep_update_every': -1,                # 深度更新频率(-1表示不更新)
-        # 'model': 'save/Weight_150000.pth',            # 模型权重文件路径
-        'model': 'baseline-algorithm/save/Weight_150000.pth',
+        'model': 'save/Weight_150000.pth',            # 模型权重文件路径
+        # 'model': 'baseline-algorithm/save/Weight_150000.pth',
         'benchmark': False                      # 是否启用基准测试模式
     }
 
