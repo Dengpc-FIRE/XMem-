@@ -35,11 +35,17 @@ COPY --chown=user:user inference.py /opt/app/
 COPY --chown=user:user XMemModel.py /opt/app/
 COPY --chown=user:user train.py /opt/app/
 COPY --chown=user:user test.py /opt/app/
+COPY --chown=user:user eval.py /opt/app/
+COPY --chown=user:user interactive_demo.py /opt/app/
+COPY --chown=user:user merge_multi_scale.py /opt/app/
 COPY --chown=user:user util /opt/app/util
 COPY --chown=user:user dataset /opt/app/dataset
 COPY --chown=user:user model /opt/app/model
-COPY --chown=user:user resources /opt/app/resources
 COPY --chown=user:user scripts /opt/app/scripts
+COPY --chown=user:user save /opt/app/save
+COPY --chown=user:user inference /opt/app/inference
+COPY --chown=user:user docs /opt/app/docs
+
 
 # Add any other files that are needed for your algorithm
 # COPY --chown=user:user <source> <destination>
