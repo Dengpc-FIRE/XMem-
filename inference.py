@@ -14,6 +14,8 @@ from glob import glob
 import SimpleITK
 import numpy as np
 import time
+import os
+
 
 INPUT_PATH = Path("/input")
 OUTPUT_PATH = Path("/output")
@@ -31,6 +33,7 @@ def run():
     input_scanned_region = load_json_file(
          location=INPUT_PATH / "scanned-region.json",
     )
+
     input_mri_linac_series = load_image_file_as_array(
         location=INPUT_PATH / "images/mri-linacs",
     )
@@ -70,7 +73,9 @@ def run():
 
 def load_json_file(*, location):
     # Reads a json file
+    print(location)
     with open(location, 'r') as f:
+        
         return json.loads(f.read())
 
 
@@ -90,9 +95,11 @@ def write_array_as_image_file(*, location, array):
     suffix = ".mha"
 
     image = SimpleITK.GetImageFromArray(array)
+    output_path = location / f"output{suffix}"
+    
     SimpleITK.WriteImage(
         image,
-        location / f"output{suffix}",
+        str(output_path)
         # useCompression=True,
     )
 
