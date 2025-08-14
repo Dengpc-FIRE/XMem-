@@ -19,11 +19,14 @@ import os
 
 # INPUT_PATH = Path("dataset/trackrad2025_labeled_training_data/C_016")
 # OUTPUT_PATH = Path("dataset/trackrad2025_labeled_training_data/C_016/output")
+INPUT_PATH = Path("/input")
+OUTPUT_PATH = Path("/output")
+
 
 def run():
-    case_id = os.environ.get("case_id")  # 从环境变量获取 case_id
-    INPUT_PATH = Path(f"dataset/trackrad2025_labeled_training_data/{case_id}")
-    OUTPUT_PATH = Path(f"dataset/trackrad2025_labeled_training_data/{case_id}/output")
+    # case_id = os.environ.get("case_id")  # 从环境变量获取 case_id
+    # INPUT_PATH = Path(f"dataset/trackrad2025_labeled_training_data/{case_id}")
+    # OUTPUT_PATH = Path(f"dataset/trackrad2025_labeled_training_data/{case_id}/output")
     loading_start_time = time.perf_counter()
 
     # Read the inputs
@@ -36,12 +39,20 @@ def run():
     input_scanned_region = load_json_file(
          location=INPUT_PATH / "scanned-region.json",
     )
+    # input_mri_linac_series = load_image_file_as_array(
+    #     location=INPUT_PATH / "images",
+    # )
+
+    # input_mri_linac_target = load_image_file_as_array(
+    #     location=INPUT_PATH / "targets",
+    # )
+
     input_mri_linac_series = load_image_file_as_array(
-        location=INPUT_PATH / "images",
+        location=INPUT_PATH / "images/mri-linacs",
     )
 
     input_mri_linac_target = load_image_file_as_array(
-        location=INPUT_PATH / "targets",
+        location=INPUT_PATH / "images/mri-linac-target",
     )
 
     print(f"Runtime loading:   {time.perf_counter() - loading_start_time:.5f} s")
