@@ -93,7 +93,7 @@ def write_array_as_image_file(*, location, array):
     SimpleITK.WriteImage(
         image,
         location / f"output{suffix}",
-        useCompression=True,
+        # useCompression=True,
     )
 
 
