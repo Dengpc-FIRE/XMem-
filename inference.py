@@ -14,19 +14,11 @@ from glob import glob
 import SimpleITK
 import numpy as np
 import time
-import os
 
-
-# INPUT_PATH = Path("dataset/trackrad2025_labeled_training_data/C_016")
-# OUTPUT_PATH = Path("dataset/trackrad2025_labeled_training_data/C_016/output")
 INPUT_PATH = Path("/input")
 OUTPUT_PATH = Path("/output")
 
-
 def run():
-    # case_id = os.environ.get("case_id")  # 从环境变量获取 case_id
-    # INPUT_PATH = Path(f"dataset/trackrad2025_labeled_training_data/{case_id}")
-    # OUTPUT_PATH = Path(f"dataset/trackrad2025_labeled_training_data/{case_id}/output")
     loading_start_time = time.perf_counter()
 
     # Read the inputs
@@ -39,14 +31,6 @@ def run():
     input_scanned_region = load_json_file(
          location=INPUT_PATH / "scanned-region.json",
     )
-    # input_mri_linac_series = load_image_file_as_array(
-    #     location=INPUT_PATH / "images",
-    # )
-
-    # input_mri_linac_target = load_image_file_as_array(
-    #     location=INPUT_PATH / "targets",
-    # )
-
     input_mri_linac_series = load_image_file_as_array(
         location=INPUT_PATH / "images/mri-linacs",
     )
@@ -86,9 +70,7 @@ def run():
 
 def load_json_file(*, location):
     # Reads a json file
-    print(location)
     with open(location, 'r') as f:
-        
         return json.loads(f.read())
 
 
@@ -108,12 +90,10 @@ def write_array_as_image_file(*, location, array):
     suffix = ".mha"
 
     image = SimpleITK.GetImageFromArray(array)
-    output_path = location / f"output{suffix}"
-    
     SimpleITK.WriteImage(
         image,
-        str(output_path)
-        # useCompression=True,
+        location / f"output{suffix}",
+        useCompression=True,
     )
 
 
